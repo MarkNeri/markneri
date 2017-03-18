@@ -1,0 +1,20 @@
+group 'markneri'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile  (
+            [group: 'commons-codec', name: 'commons-codec', version: '1.10'],
+            [group: 'com.google.guava', name: 'guava', version: '19.0'],
+            [group: 'com.jcraft', name: 'jsch', version:'0.1.54'],
+            [group: 'commons-io', name: 'commons-io', version: '2.5']
+    )
+}
