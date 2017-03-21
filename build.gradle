@@ -1,0 +1,10 @@
+allprojects {
+    //Put instructions for all projects
+}
+subprojects {
+    apply plugin: "java"
+    sourceCompatibility = 1.8
+    repositories {
+        mavenCentral()
+    }
+}

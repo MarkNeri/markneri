@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootstrap.iml" filepath="$PROJECT_DIR$/.idea/modules/bootstrap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootstrap_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bootstrap_main.iml" group="bootstrap" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootstrap_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bootstrap_test.iml" group="bootstrap" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/329378723/bootstrap.iml" filepath="$PROJECT_DIR$/.idea/modules/329378723/bootstrap.iml" group="bootstrap" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/329378723/bootstrap_main.iml" filepath="$PROJECT_DIR$/.idea/modules/329378723/bootstrap_main.iml" group="bootstrap" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/329378723/bootstrap_test.iml" filepath="$PROJECT_DIR$/.idea/modules/329378723/bootstrap_test.iml" group="bootstrap" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1581802682/comp.iml" filepath="$PROJECT_DIR$/.idea/modules/1581802682/comp.iml" group="comp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1581802682/comp_main.iml" filepath="$PROJECT_DIR$/.idea/modules/1581802682/comp_main.iml" group="comp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1581802682/comp_test.iml" filepath="$PROJECT_DIR$/.idea/modules/1581802682/comp_test.iml" group="comp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1582057369/lang.iml" filepath="$PROJECT_DIR$/.idea/modules/1582057369/lang.iml" group="lang" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1582057369/lang_main.iml" filepath="$PROJECT_DIR$/.idea/modules/1582057369/lang_main.iml" group="lang" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1582057369/lang_test.iml" filepath="$PROJECT_DIR$/.idea/modules/1582057369/lang_test.iml" group="lang" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher.iml" group="launcher" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher_main.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher_main.iml" group="launcher" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher_test.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher_test.iml" group="launcher" />
-      <module fileurl="file://$PROJECT_DIR$/markneri.iml" filepath="$PROJECT_DIR$/markneri.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1626893700/markneri.iml" filepath="$PROJECT_DIR$/.idea/modules/1626893700/markneri.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/167392592/tables.iml" filepath="$PROJECT_DIR$/.idea/modules/167392592/tables.iml" group="tables" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/167392592/tables_main.iml" filepath="$PROJECT_DIR$/.idea/modules/167392592/tables_main.iml" group="tables" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/167392592/tables_test.iml" filepath="$PROJECT_DIR$/.idea/modules/167392592/tables_test.iml" group="tables" />
     </modules>
   </component>
 </project>

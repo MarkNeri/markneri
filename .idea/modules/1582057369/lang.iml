@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":lang" external.linked.project.path="$MODULE_DIR$/../../../lang" external.root.project.path="$MODULE_DIR$/../../../launcher" external.system.id="GRADLE" external.system.module.group="markneri" external.system.module.version="unspecified" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <content url="file://$MODULE_DIR$/../../../lang">
+      <excludeFolder url="file://$MODULE_DIR$/../../../lang/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../lang/build" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

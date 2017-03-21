@@ -4,8 +4,14 @@
     <bytecodeTargetLevel target="1.8">
       <module name="bootstrap_main" target="1.8" />
       <module name="bootstrap_test" target="1.8" />
+      <module name="comp_main" target="1.8" />
+      <module name="comp_test" target="1.8" />
+      <module name="lang_main" target="1.8" />
+      <module name="lang_test" target="1.8" />
       <module name="launcher_main" target="1.8" />
       <module name="launcher_test" target="1.8" />
+      <module name="tables_main" target="1.8" />
+      <module name="tables_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
