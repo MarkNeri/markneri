@@ -1,9 +1,11 @@
 package markneri.launcher;
 
+
+import lang.Exceptions;
 import markneri.bootstrap.Bootstrap;
 
 import com.google.common.base.Joiner;
-import com.google.common.base.Throwables;
+
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.jcraft.jsch.*;
@@ -37,17 +39,18 @@ public class RemoteExecute {
         public Upload(String hash, File file) {
             this.hash = hash;
             this.file = file;
-        }
+         }
 
         final String hash;
         final File file;
     }
 
+
     static <T> T get(Future<T> future) {
         try {
             return future.get();
         } catch (Exception e) {
-            throw Throwables.propagate(e);
+            throw Exceptions.toRuntime(e);
         }
     }
 
@@ -72,7 +75,7 @@ public class RemoteExecute {
         try {
             main(args, host);
         } catch (Exception e) {
-            throw Throwables.propagate(e);
+            throw Exceptions.toRuntime(e);
         }
         System.exit(0);
 
@@ -300,7 +303,7 @@ public class RemoteExecute {
             IOUtils.closeQuietly(outputStream);
             IOUtils.closeQuietly(inputStream);
 
-            throw Throwables.propagate(e);
+            throw Exceptions.toRuntime(e);
         }
     }
 
@@ -394,7 +397,7 @@ public class RemoteExecute {
             try (FileInputStream inputStream = new FileInputStream(file)) {
                 return DigestUtils.sha512Hex(inputStream);
             } catch (IOException e) {
-                throw Throwables.propagate(e);
+                throw Exceptions.toRuntime(e);
             }
 
         }

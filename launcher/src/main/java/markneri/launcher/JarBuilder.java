@@ -3,6 +3,7 @@ package markneri.launcher;
 import com.google.common.base.Throwables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import lang.Exceptions;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
@@ -41,7 +42,7 @@ public class JarBuilder {
 
             FileUtils.copyFile(file, dst);
         } catch (ZipException e) {
-            throw Throwables.propagate(e);
+            throw Exceptions.toRuntime(e);
         } finally {
 
 

@@ -27,7 +27,7 @@ interface Cache<K, V> {
                     try {
                         return delegate.get(k, f::get);
                     } catch (ExecutionException e) {
-                        throw Throwables.toRuntime(e);
+                        throw Exceptions.toRuntime(e);
                     }
                 }
             };

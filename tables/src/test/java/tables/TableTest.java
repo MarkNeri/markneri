@@ -6,6 +6,10 @@ import org.junit.Test;
  */
 public class TableTest {
 
+    @Test
+    public void testTest() {
+        assert(false);
+    }
     public static interface AB extends Table<AB>
     {
         public static AB from(Array a, Array b) {return Table.from(AB.class, a, b);}

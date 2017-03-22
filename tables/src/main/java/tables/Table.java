@@ -6,7 +6,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
-import pkg.impl.DefaultMethodHelper;
+import lang.DefaultMethodHelper;
+
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -100,6 +101,7 @@ public interface Table<T extends Table> {
 
                     for (int i = 0; i < columns.length; i++) {
                         String name = parameters[i].getName();
+                        if (name.startsWith("arg")) throw new RuntimeException("Needs to be compiled with the parameters option");
                         columnsBuilder.put(name, Column.from(name, columns[i]));
                     }
                     break;

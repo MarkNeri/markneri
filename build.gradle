@@ -1,10 +1,31 @@
-allprojects {
-    //Put instructions for all projects
-}
+
+
 subprojects {
     apply plugin: "java"
+    compileJava {
+
+        options.compilerArgs << '-parameters'
+        options.fork = true
+        options.forkOptions.executable = 'javac'
+    }
+
+
     sourceCompatibility = 1.8
+
+
+    ext {
+        guava = 'com.google.guava:guava:21.0'
+        jsch = 'com.jcraft:jsch:0.1.54'
+        commonsCodec = 'commons-codec:commons-codec:1.10'
+        commonsIo = 'commons-io:commons-io:2.5'
+        junit = 'junit:junit:4.11'
+    }
+
     repositories {
         mavenCentral()
+    }
+
+    dependencies {
+        testCompile junit
     }
 }

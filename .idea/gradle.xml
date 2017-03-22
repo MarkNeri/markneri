@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/tables" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="createEmptyContentRootDirectories" value="true" />
@@ -33,6 +34,7 @@
             <option value="$PROJECT_DIR$/tables" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="createEmptyContentRootDirectories" value="true" />
@@ -49,6 +51,7 @@
             <option value="$PROJECT_DIR$/tables" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="createEmptyContentRootDirectories" value="true" />
@@ -65,6 +68,7 @@
             <option value="$PROJECT_DIR$/tables" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="createEmptyContentRootDirectories" value="true" />
@@ -81,6 +85,7 @@
             <option value="$PROJECT_DIR$/tables" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

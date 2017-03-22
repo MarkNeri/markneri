@@ -2,8 +2,10 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
     compile project (':bootstrap')
-    compile 'commons-codec:commons-codec:1.10'
-    compile 'com.google.guava:guava:21.0'
-    compile 'com.jcraft:jsch:0.1.54'
-    compile 'commons-io:commons-io:2.5'
+    compile project (':lang')
+
+    compile commonsCodec
+    compile guava
+    compile jsch
+    compile commonsIo
 }

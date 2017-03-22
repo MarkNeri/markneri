@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by markneri on 3/20/2017.
  */
-public class Throwables {
+public class Exceptions {
     public static RuntimeException toRuntime(Throwable t)
     {
         if (t instanceof ExecutionException)

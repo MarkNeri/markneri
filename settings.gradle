@@ -1,7 +1,6 @@
-rootProject.name = 'markneri'
-
 include ':bootstrap'
-include ':comp'
-include ':lang'
 include ':launcher'
 include ':tables'
+include ':comp'
+include ':lang'
+

@@ -1,6 +1,12 @@
 package comp;
 
+import org.omg.CORBA.DataOutputStream;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -15,17 +21,22 @@ public interface Comp {
 
     static <T extends Serializable, U extends T> T comp(Supplier<? extends U> supplier, Class<U> ...cls)
     {
-        return (T) Proxy.newProxyInstance(supplier.getClass().getClassLoader(), cls, (object, method, args) -> {
+        return (T) Proxy.newProxyInstance(supplier.getClass().getClassLoader(), cls, (InvocationHandler & Serializable) (object, method, args) -> {
             return method.invoke(exec.submit(supplier::get).get(), args);
         });
     };
 
     static <T extends Serializable, U extends T> T data(U data)
     {
-        return (T) Proxy.newProxyInstance(data.getClass().getClassLoader(), data.getClass().getInterfaces(), (object, method, args) -> {
-            return method.invoke(object, args);
-        });
+         InvocationHandler invocationHandler = (InvocationHandler & Serializable)(object, method, args) -> {
+
+
+            return method.invoke(data, args);
+        };
+        return (T) Proxy.newProxyInstance(data.getClass().getClassLoader(), data.getClass().getInterfaces(), invocationHandler);
     }
+
+
 
     static class DataImpl<T> implements Serializable
     {
@@ -84,16 +95,23 @@ public interface Comp {
 
     }
 
-    public static void main(String[] args)
-    {
-        Name a = comp(() -> new NameImpl("mark", "l", "neri"), Name.class);
+    public static void main(String[] args) throws IOException {
+        Name a = data(new NameImpl("mark", "l", "neri"));
         Name b = comp(() -> new NameImpl("mark", "l", "neri"), Name.class);
         Name c = comp(() -> new NameImpl("mark", "l", "neri"), Name.class);
 
 
+        ObjectOutputStream s = new ObjectOutputStream(new ByteArrayOutputStream());
+
+        s.writeObject(a);
+        s.writeObject(b);
+        s.writeObject(c);
+
         System.out.println(a.first() + " " + a.createThreadId());
         System.out.println(b.first() + " " + b.createThreadId());
         System.out.println(c.first() + " " + c.createThreadId());
+
+
 
     }
 }

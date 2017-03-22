@@ -4,7 +4,6 @@ package lang;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -20,7 +19,7 @@ public class DefaultMethodHelper {
             try {
                 return method.invoke(impl, args);
             } catch (Exception e) {
-                throw Throwables.toRuntime(e);
+                throw Exceptions.toRuntime(e);
             }
         }
     }
@@ -31,7 +30,7 @@ public class DefaultMethodHelper {
         try {
             constructor = MethodHandles.Lookup.class.getDeclaredConstructor(Class.class, int.class);
         } catch (NoSuchMethodException e) {
-            throw Throwables.toRuntime(e);
+            throw Exceptions.toRuntime(e);
         }
         if (!constructor.isAccessible()) {
             constructor.setAccessible(true);
@@ -48,22 +47,28 @@ public class DefaultMethodHelper {
             try {
                 return constructor.newInstance(declaringClass, MethodHandles.Lookup.PRIVATE);
             } catch (Exception e) {
-                throw Throwables.toRuntime(e);
+                throw Exceptions.toRuntime(e);
             }
         });
 
-        return methodCache.get(method, () -> {
+        MethodHandle methodHandle = methodCache.get(method, () -> {
             try {
-                Object methodHandle = classConstructor
-                        .unreflectSpecial(method, declaringClass)
-                        .bindTo(proxy)
-                        .invokeWithArguments(args);
-                return (MethodHandle) methodHandle;
+                return classConstructor
+                        .unreflectSpecial(method, declaringClass);
+
 
             } catch (Throwable e) {
-                throw Throwables.toRuntime(e);
+                throw Exceptions.toRuntime(e);
             }
         });
+
+
+        try {
+            return methodHandle.bindTo(proxy)
+                    .invokeWithArguments(args);
+        } catch (Throwable throwable) {
+            throw Exceptions.toRuntime(throwable);
+        }
     }
 
 
