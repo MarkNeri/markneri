@@ -59,7 +59,7 @@ public class Datastore {
 
     static <T extends Serializable> T deserialize(StoreInputStream input)
     {
-
+        return null;
     }
 
 

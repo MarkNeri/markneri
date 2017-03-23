@@ -1,6 +1,6 @@
 dependencies {
     compile project (':lang')
-    compile project (':bootstrap')
+
 
     compile guava
 
