@@ -7,7 +7,7 @@ import org.junit.Test;
  */
 public class TableTest {
 
-    Bootstrap b;
+    Bootstrap b = null;
 
     public static interface AB extends Table<AB>
     {
