@@ -1,4 +1,5 @@
 package tables;
+import markneri.bootstrap.Bootstrap;
 import org.junit.Test;
 
 /**
@@ -6,6 +7,7 @@ import org.junit.Test;
  */
 public class TableTest {
 
+    Bootstrap b;
 
     public static interface AB extends Table<AB>
     {
