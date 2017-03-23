@@ -1,3 +1,5 @@
+rootProject.name='markneri'
+
 include ':bootstrap'
 include ':launcher'
 include ':tables'
