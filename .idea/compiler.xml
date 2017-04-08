@@ -1,20 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
-      <module name="bootstrap_main" target="1.8" />
-      <module name="bootstrap_test" target="1.8" />
-      <module name="comp_main" target="1.8" />
-      <module name="comp_test" target="1.8" />
-      <module name="lang_main" target="1.8" />
-      <module name="lang_test" target="1.8" />
-      <module name="launcher_main" target="1.8" />
-      <module name="launcher_test" target="1.8" />
-      <module name="tables_main" target="1.8" />
-      <module name="tables_test" target="1.8" />
+      <module name="bootstrap_main" target="1.8"/>
+      <module name="bootstrap_test" target="1.8"/>
+      <module name="common_main" target="1.8"/>
+      <module name="common_test" target="1.8"/>
+      <module name="comp_main" target="1.8"/>
+      <module name="comp_test" target="1.8"/>
+      <module name="lang_main" target="1.8"/>
+      <module name="lang_test" target="1.8"/>
+      <module name="launcher_main" target="1.8"/>
+      <module name="launcher_test" target="1.8"/>
+      <module name="tables_main" target="1.8"/>
+      <module name="tables_test" target="1.8"/>
     </bytecodeTargetLevel>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true">
+        <sourceOutputDir name="generated_src"/>
+        <sourceTestOutputDir name="generated_testSrc"/>
+        <outputRelativeToContentRoot value="true"/>
+        <processorPath useClasspath="true"/>
+      </profile>
+    </annotationProcessing>
   </component>
   <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters"/>
   </component>
 </project>

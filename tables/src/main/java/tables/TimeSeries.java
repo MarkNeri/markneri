@@ -5,9 +5,9 @@ package tables;
  */
 public interface TimeSeries extends Table<TimeSeries> {
 
-    public static TimeSeries from(Array ts, Array value) {
-        return Table.from(TimeSeries.class, ts, value);
-    }
+  public static TimeSeries from(Array ts, Array value) {
+    return Table.from(TimeSeries.class, ts, value);
+  }
 /*
     public static TimeSeries from(Table table) {
         return Table.from(TimeSeries.class, table);
@@ -15,15 +15,15 @@ public interface TimeSeries extends Table<TimeSeries> {
     */
 
 
-    public abstract Column ts();
+  public abstract Column ts();
 
-    public abstract Column value();
+  public abstract Column value();
 
-    public default long maxTime() {
-        return 6;
-    }
+  public default long maxTime() {
+    return 6;
+  }
 
-    public default int plusOne() {
-        return numColumns() + 1;
-    }
+  public default int plusOne() {
+    return numColumns() + 1;
+  }
 }

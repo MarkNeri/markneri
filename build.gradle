@@ -1,10 +1,18 @@
+plugins {
+    id 'org.inferred.processors' version '1.2.8'
+}
 
+//apply plugin: 'org.inferred.processors'
 
 subprojects {
-    apply plugin: "java"
+    apply plugin: 'org.inferred.processors'
+    apply plugin: 'idea'
+    apply plugin: 'java'
+
     compileJava {
 
         options.compilerArgs << '-parameters'
+
         options.fork = true
         options.forkOptions.executable = 'javac'
     }
@@ -19,6 +27,9 @@ subprojects {
         commonsCodec = 'commons-codec:commons-codec:1.10'
         commonsIo = 'commons-io:commons-io:2.5'
         junit = 'junit:junit:4.11'
+        immutables = 'org.immutables:value:2.4.4'
+        logback = 'ch.qos.logback:logback-classic:1.2.3'
+        mockito = 'org.mockito:mockito-all:1.10.19'
     }
 
     repositories {
@@ -26,6 +37,10 @@ subprojects {
     }
 
     dependencies {
+
         testCompile junit
+        testCompile mockito
     }
+
+
 }

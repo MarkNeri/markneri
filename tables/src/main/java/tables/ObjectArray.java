@@ -7,21 +7,20 @@ import com.google.common.collect.ImmutableList;
  */
 public class ObjectArray extends Array {
 
-    private final ImmutableList<Object> data;
+  private final ImmutableList<Object> data;
 
-    public ObjectArray(ImmutableList<Object> data) {
-        this.data = data;
-    }
+  public ObjectArray(ImmutableList<Object> data) {
+    this.data = data;
+  }
 
-    public double getD(int index)
-    {
-        return (Double) data.get(index);
-    }
+  public double getD(int index) {
+    return (Double) data.get(index);
+  }
 
-    @Override
-    public int length() {
-        return data.size();
+  @Override
+  public int length() {
+    return data.size();
 
-    }
+  }
 
 }

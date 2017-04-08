@@ -5,19 +5,19 @@ package tables;
  */
 public class DelegatingArray extends Array {
 
-    public DelegatingArray(Array delegate) {
-        this.delegate = delegate;
-    }
+  private final Array delegate;
 
-    @Override
-    public double getD(int index) {
-        return delegate.getD(index);
-    }
+  public DelegatingArray(Array delegate) {
+    this.delegate = delegate;
+  }
 
-    @Override
-    public int length() {
-        return delegate.length();
-    }
+  @Override
+  public double getD(int index) {
+    return delegate.getD(index);
+  }
 
-    private final Array delegate;
+  @Override
+  public int length() {
+    return delegate.length();
+  }
 }
