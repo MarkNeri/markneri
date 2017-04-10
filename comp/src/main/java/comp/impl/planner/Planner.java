@@ -2,6 +2,9 @@ package comp.impl.planner;
 
 import java.io.Serializable;
 import java.net.InetSocketAddress;
+import java.util.Optional;
+import org.immutables.value.Value;
+import org.immutables.value.Value.Immutable;
 
 
 public interface Planner {
@@ -54,54 +57,21 @@ public interface Planner {
     void flush();
   }
 
-  static class Result implements Serializable {
+  @Value.Immutable
+  interface GeneratorInfo extends Serializable
+  {
+      String generatorDigest();
+      Iterable<String> generatorDependencies();
+  }
 
-    public final String result;
-    public final String exception;
-    public final String log;
+  @Value.Immutable
+  interface Result extends Serializable {
 
-    public Result(String result, String exception, String log) {
-      this.result = result;
-      this.exception = exception;
-      this.log = log;
-    }
+    public Optional<String> result();
+    public Optional<String> exception();
+    public Optional<String> log();
 
-    @Override
-    public String toString() {
-      return "Result{" +
-          "result='" + result + '\'' +
-          ", exception='" + exception + '\'' +
-          ", log='" + log + '\'' +
-          '}';
-    }
 
-    @Override
-    public boolean equals(Object o) {
-      if (this == o) {
-        return true;
-      }
-      if (o == null || getClass() != o.getClass()) {
-        return false;
-      }
-
-      Result result1 = (Result) o;
-
-      if (result != null ? !result.equals(result1.result) : result1.result != null) {
-        return false;
-      }
-      if (exception != null ? !exception.equals(result1.exception) : result1.exception != null) {
-        return false;
-      }
-      return log != null ? log.equals(result1.log) : result1.log == null;
-    }
-
-    @Override
-    public int hashCode() {
-      int result1 = result != null ? result.hashCode() : 0;
-      result1 = 31 * result1 + (exception != null ? exception.hashCode() : 0);
-      result1 = 31 * result1 + (log != null ? log.hashCode() : 0);
-      return result1;
-    }
   }
 
 

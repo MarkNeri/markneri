@@ -7,6 +7,7 @@ import ch.qos.logback.classic.Level;
 import com.google.common.collect.Queues;
 import com.google.common.collect.ImmutableList;
 import common.Exceptions;
+import comp.impl.planner.ImmutableResult;
 import comp.impl.planner.LoggingPlanner;
 import comp.impl.planner.Planner;
 import comp.impl.planner.Planner.PlannerToThread;
@@ -28,6 +29,7 @@ import org.slf4j.LoggerFactory;
 @RunWith(MockitoJUnitRunner.class)
 public class PlannerImplTest {
 
+  static Result result = ImmutableResult.builder().result("gar").build();
 
   @Test
   public void test() {
@@ -53,7 +55,7 @@ public class PlannerImplTest {
     worker.verify().execute("g");
 
     main.resultNeeded("g");
-    worker.executionComplete("g", new Planner.Result("a", null, null));
+    worker.executionComplete("g", result);
 
     m.flush();
 
@@ -92,7 +94,7 @@ public class PlannerImplTest {
 
     verify(thread.mock).execute("g");
 
-    thread.executionComplete("g", new Planner.Result("a", null, null));
+    thread.executionComplete("g", result);
 
     m.flush();
 
@@ -129,10 +131,10 @@ public class PlannerImplTest {
 
     thread2.verify().proceed();
 
-    thread2.executionComplete("ga", new Result("gar", null, null));
+    thread2.executionComplete("ga", result);
 
     thread1.resultNeeded("ga");
-    m1.verify().result("ga", new Result("gar", null, null));
+    m1.verify().result("ga", result);
     thread1.verify().proceed();
 
 
@@ -172,9 +174,9 @@ public class PlannerImplTest {
     m2.flush();
 
     verify(thread1.mock).execute("ga");
-    thread1.executionComplete("ga", new Result("gar", null, null));
+    thread1.executionComplete("ga", result);
 
-    m1.verify().result("ga", new Result("gar", null, null));
+    m1.verify().result("ga", result);
     thread1.verify().proceed();
 
 
@@ -220,11 +222,11 @@ public class PlannerImplTest {
     m3.flush();
     thread3.verify().execute("ga");
     //Faking the data interchange here.  The Planner could complain someday
-    thread3.executionComplete("ga", new Result("gar", null, null));
+    thread3.executionComplete("ga", result);
     m3.flush();
 
     thread1.resultNeeded("ga");
-    m1.verify().result("ga", new Result("gar", null, null));
+    m1.verify().result("ga", result);
     thread1.verify().proceed();
 
 

@@ -6,6 +6,7 @@ import common.Exceptions;
 import common.ThreadLocals;
 import comp.Generator;
 import comp.Ref;
+import comp.impl.planner.ImmutableResult;
 import comp.impl.planner.LoggingPlanner;
 import comp.impl.planner.Planner;
 import comp.impl.planner.PlannerClient;
@@ -100,10 +101,10 @@ class CompContext implements Planner.PlannerToThread {
       try {
         Serializable r = g.get();
         Ref<Serializable> retRef = Ref.ref(r);
-        result = new Planner.Result(retRef.digest(), null, null);
+        result = ImmutableResult.builder().result(retRef.digest()).build();
 
       } catch (Exception e) {
-        result = new Planner.Result(null, Ref.ref(e).digest(), null);
+        result = ImmutableResult.builder().exception(Ref.ref(e).digest()).build();
       }
 
       threadToPlanner.executionComplete(generatorDigest, result);
@@ -149,10 +150,10 @@ class CompContext implements Planner.PlannerToThread {
       try {
 
         Planner.Result result = results.get(generatorDigest);
-        if (result.result != null) {
-          return DataRef.fromDigest(result.result);
+        if (result.result().isPresent()) {
+          return DataRef.fromDigest(result.result().get());
         } else {
-          final Ref<Exception> e = DataRef.fromDigest(result.exception);
+          final Ref<Exception> e = DataRef.fromDigest(result.exception().get());
           return new Ref<T>() {
             @Override
             public T get() {
@@ -211,10 +212,5 @@ class CompContext implements Planner.PlannerToThread {
     }
   }
 
-  static class Results {
 
-    String result;
-    String exception;
-    String log;
-  }
 }
