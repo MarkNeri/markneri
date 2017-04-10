@@ -58,6 +58,7 @@ public class PlannerImpl implements Planner {
         String blockingData = getBlockingData(thread);
         if (blockingData != null) {
           Data d = data.get(blockingData);
+          Preconditions.checkState(d != null, "Waiting for data that was never sent");
           if (d.machines.contains(machine)) {
             thread.remote.proceed();
             clearBlockingData(thread);
@@ -199,6 +200,9 @@ public class PlannerImpl implements Planner {
   }
 
   void executionComplete(Worker thread, String generator, Result result) {
+    Preconditions.checkState(getBlockingData(thread) == null);
+    Preconditions.checkState(getBlockingGenerator(thread) == null);
+
     Task task = thread.stack.removeLast();
     Preconditions.checkState(task.generator.equals(generator));
     task.result = result;
@@ -239,6 +243,7 @@ public class PlannerImpl implements Planner {
         t.blockingGenerator = null;
         t.blockingData = null;
         t.hasStarted = false;
+        unstartedTasks.add(t);
       }
 
     }

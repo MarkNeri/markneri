@@ -35,7 +35,7 @@ public class LoggingPlanner implements Planner {
 
       @Override
       public void flushed() {
-        logger.info("P->M({}): flushed()", machineI);
+        logger.debug("P->M({}): flushed()", machineI);
         machine.flushed();
       }
 
@@ -62,7 +62,7 @@ public class LoggingPlanner implements Planner {
 
       @Override
       public void flush() {
-        logger.info("P->M({}): flush()", machineI);
+        logger.debug("M({})->P: flush()", machineI);
         machineDelegate.flush();
       }
 
