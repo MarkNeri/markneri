@@ -60,8 +60,10 @@ public interface Planner {
   @Value.Immutable
   interface GeneratorInfo extends Serializable
   {
-      String generatorDigest();
-      Iterable<String> generatorDependencies();
+      String generator();
+      Iterable<String> dependencies();
+      Iterable<String> locality();
+      Optional<String> merger(); //The digest of a class that can take this generator along with other and compute them all together efficiently
   }
 
   @Value.Immutable
